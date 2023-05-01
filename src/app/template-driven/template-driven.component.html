@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row p-5">
+    <div class="col">
+      <h1 class="text-center">Template Driven Form</h1>
+      <form #StudentForm="ngForm" (ngSubmit)="register(StudentForm)">
+
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">Full Name</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="username" ngModel required="required" #username="ngModel">
+            <small class="text-danger" *ngIf="!username.valid && username.touched">Please Enter Your Name</small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">Email</label>
+          <div class="col-sm-8">
+            <input type="email" class="form-control" name="email" ngModel email required="required" #email="ngModel">
+            <small class="text-danger" *ngIf="!email.valid && email.touched">Please Enter Valid Email</small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">Age</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control" name="age" ngModel required="required" #age="ngModel">
+            <small class="text-danger" *ngIf="!age.valid && age.touched">Please Enter Valid Age</small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <legend class="col-form-label col-sm-4 pt-0">Gender</legend>
+          <div class="col-sm-8">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" value="Male" [(ngModel)]="defaultGender">
+              <label class="form-check-label">Male</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" value="Female" [(ngModel)]="defaultGender" >
+              <label class="form-check-label">Female</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">Course</label>
+          <div class="col-sm-8">
+            <select class="form-select" name="course" [ngModel]="defaultCourse" required="required" #course="ngModel">
+              <option value="BCA">BCA</option>
+              <option value="BBA">BBA</option>
+              <option value="B.Com">B.Com</option>
+              <option value="MCA">MCA</option>
+              <option value="MBA">MBA</option>
+              <option value="M.Com">M.Com</option>
+            </select>
+            <small class="text-danger" *ngIf="!course.valid && course.touched">Please Select Your Course</small>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-dark" [disabled]="!StudentForm.valid">Register</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="container" *ngIf="submitted">
+  <div class="row">
+    <div class="col-4">
+      <strong>Full Name</strong><br>
+      <strong>Email</strong><br>
+      <strong>Age</strong><br>
+      <strong>Gender</strong><br>
+      <strong>Course</strong>
+    </div>
+    <div class="col-8">
+      <strong> : {{ studentData.username }}</strong><br>
+      <strong> : {{ studentData.email }}</strong><br>
+      <strong> : {{ studentData.age }}</strong><br>
+      <strong> : {{ studentData.gender }}</strong><br>
+      <strong> : {{ studentData.course }}</strong><br>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,115 @@
+<div class="container">
+  <div class="row p-5">
+    <div class="col">
+      <h1 class="text-center">Nested Reactive Form</h1>
+      <form [formGroup]="studentForm" (ngSubmit)="register()">
+
+        <div formGroupName="fullName">
+          <div class="row mb-3">
+            <label class="col-sm-4 col-form-label">Username</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" formControlName="username">
+              <small class="text-danger" *ngIf="username && username.invalid && username.touched">Please Enter Your
+                Name</small>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-4 col-form-label">Surname</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" formControlName="surname">
+              <small class="text-danger" *ngIf="surname && surname.invalid && surname.touched">Please Enter Your
+                Surname</small>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">Email</label>
+          <div class="col-sm-8">
+            <input type="email" class="form-control" formControlName="email">
+            <small class="text-danger" *ngIf="email && email.invalid && email.touched">Please Enter Valid Email</small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">Mobile Number</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" formControlName="mobile">
+            <small class="text-danger" *ngIf="mobile && mobile.invalid && mobile.touched">Please Enter Valid Mobile Number</small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">Age</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control" formControlName="age">
+            <small class="text-danger" *ngIf="age && age.invalid && age.touched">Please Enter Age Between 18-25</small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <legend class="col-form-label col-sm-4 pt-0">Gender</legend>
+          <div class="col-sm-8">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="Male" formControlName="gender">
+              <label class="form-check-label">Male</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="Female" formControlName="gender">
+              <label class="form-check-label">Female</label>
+            </div>
+            <small class="text-danger" *ngIf="gender && gender.invalid && gender.touched">Please select your
+              gender</small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">Course</label>
+          <div class="col-sm-8">
+            <select class="form-select" formControlName="course">
+              <option value="BCA">BCA</option>
+              <option value="BBA">BBA</option>
+              <option value="B.Com">B.Com</option>
+              <option value="MCA">MCA</option>
+              <option value="MBA">MBA</option>
+              <option value="M.Com">M.Com</option>
+            </select>
+            <small class="text-danger" *ngIf="course && !course.valid && course.touched">Please Select Your
+              Course</small>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-dark" [disabled]="studentForm.invalid">Register</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="container" *ngIf="submitted">
+  <div class="row">
+    <div class="col-4">
+      <strong>Username</strong><br>
+      <strong>Surname</strong><br>
+      <strong>Email</strong><br>
+      <strong>Mobile</strong><br>
+      <strong>Age</strong><br>
+      <strong>Gender</strong><br>
+      <strong>Course</strong>
+    </div>
+    <div class="col-8">
+      <strong> : {{ studentData.username }}</strong><br>
+      <strong> : {{ studentData.surname }}</strong><br>
+      <strong> : {{ studentData.email }}</strong><br>
+      <strong> : {{ studentData.mobile }}</strong><br>
+      <strong> : {{ studentData.age }}</strong><br>
+      <strong> : {{ studentData.gender }}</strong><br>
+      <strong> : {{ studentData.course }}</strong><br>
+    </div>
+  </div>
+
+</div>

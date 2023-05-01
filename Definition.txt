@@ -1,0 +1,24 @@
+Task - 11
+Forms
+	- Template Driven
+	- Reactive 
+	- Nested
+
+01 Template Driven :
+	This is working with the ngmodel. so we can easy to understand and impelement. All validation also set in html file. We need to import (formsModule) in module.ts file.
+
+02 Reactive Form :
+	This is working with the FormGroup. We need to import in module.ts file (ReactiveFormModule)
+	Also we need to import in component.ts file (FormGroup, FormControl, Validator )
+	In this method we need to all input name specify in the ts file under the formgroup.
+	input name called as a FormControlName.
+	also we need to all inputs control need to one get method for the get value from the formgroup.
+	All validation specify in the ts file.
+
+03. Nested Reactive Form:
+	It means reactive formgroup have a child formgroup that called a nested reactive form.
+	We can lots of formgroup create in the parent formgroup.
+
+
+
+	
